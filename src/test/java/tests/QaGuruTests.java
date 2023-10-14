@@ -51,7 +51,7 @@ public class QaGuruTests extends TestBase {
     @MethodSource("checkStackTest")
     @ParameterizedTest(name = "При нажатии на {0}, переход на страницу {1} и проверка наличия {2} стек технологии")
     @Tags({@Tag("Stack"), @Tag("Arguments")})
-    void checkStackOnCoursesWithStream(String clickLink, String courseStack, String currentUrl) {
+    void checkStackOnCoursesWithStreamTest(String clickLink, String courseStack, String currentUrl) {
         qaGuruPage.openPage();
         qaGuruPage.clickNavibarLink(clickLink);
         qaGuruPage.searchStack(courseStack);
