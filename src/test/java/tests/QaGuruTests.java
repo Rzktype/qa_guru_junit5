@@ -24,7 +24,7 @@ public class QaGuruTests extends TestBase {
     })
     @ParameterizedTest(name = "При нажатии на {0}, переход на страницу {1}")
     @Tags({@Tag("UI"), @Tag("Smoke")})
-    void checkAllCourses(String clickLink, String currentUrl) {
+    void checkAllCoursesTest(String clickLink, String currentUrl) {
         qaGuruPage.openPage();
         qaGuruPage.clickNavibarLink(clickLink);
         verify.verifyUrl(currentUrl);
@@ -33,7 +33,7 @@ public class QaGuruTests extends TestBase {
     @CsvFileSource(resources = "/test_data.csv")
     @ParameterizedTest(name = "При нажатии на {0}, переход на страницу {1} и проверка наличия {2} стек технологии")
     @Tags({@Tag("UI"), @Tag("Stack")})
-    void checkStackOnCourses(String clickLink, String courseStack, String currentUrl) {
+    void checkStackOnCoursesTest(String clickLink, String courseStack, String currentUrl) {
 
         qaGuruPage.openPage();
         qaGuruPage.clickNavibarLink(clickLink);
@@ -41,14 +41,14 @@ public class QaGuruTests extends TestBase {
         verify.verifyUrl(currentUrl);
     }
 
-    static Stream<Arguments> checkStack() {
+    static Stream<Arguments> checkStackTest() {
         return Stream.of(
                 Arguments.of("Курсы Java+", "gRPC", "https://qa.guru/java-advanced"),
                 Arguments.of("Курсы Python", "Pytest", "https://qa.guru/python")
         );
     }
 
-    @MethodSource("checkStack")
+    @MethodSource("checkStackTest")
     @ParameterizedTest(name = "При нажатии на {0}, переход на страницу {1} и проверка наличия {2} стек технологии")
     @Tags({@Tag("Stack"), @Tag("Arguments")})
     void checkStackOnCoursesWithStream(String clickLink, String courseStack, String currentUrl) {
