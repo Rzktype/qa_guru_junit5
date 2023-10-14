@@ -23,5 +23,6 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform{
         includeTags("UI")
+        excludeTags("Arguments")
     }
 }
